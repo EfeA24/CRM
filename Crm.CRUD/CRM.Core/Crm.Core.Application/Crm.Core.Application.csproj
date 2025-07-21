@@ -10,4 +10,11 @@
     <ProjectReference Include="..\Crm.Core.Domain\Crm.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\CQRS\Commands\" />
+    <Folder Include="Features\CQRS\Handlers\" />
+    <Folder Include="Features\CQRS\Results\" />
+    <Folder Include="Features\CQRS\Queries\" />
+  </ItemGroup>
+
 </Project>
