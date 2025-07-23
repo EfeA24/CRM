@@ -1,0 +1,19 @@
+﻿using Crm.Core.Application.Features.CQRS.Results.MainEntityResults;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Crm.Core.Application.Features.CQRS.Queries.MainEntityQueries
+{
+    public class GetMeetingDetailQuery : IRequest<MeetingDetailResult>
+    {
+        public Guid MeetingId { get; set; }
+        public GetMeetingDetailQuery(Guid meetingId)
+        {
+            MeetingId = meetingId;
+        }
+    }
+}

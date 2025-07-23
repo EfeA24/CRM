@@ -12,17 +12,18 @@ namespace Crm.Core.Domain.Entities.OfferEntities
     {
         [Key]
         public Guid SalesOfferProductId{ get; set; }
-        public string? ProductName { get; set; } = string.Empty;
-        public string? ProductDescription { get; set; } = string.Empty;
-        public decimal? ProductPrice { get; set; }
-        public int? ProductQuantity { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdateDate { get; set; } = null;
-        public string? CreatedBy { get; set; } = string.Empty;
-        public string? UpdatedBy { get; set; } = string.Empty;
+        public string? SalesOfferProductName { get; set; } = string.Empty;
+        public string? SalesOfferProductDescription { get; set; } = string.Empty;
+        public string? Currency { get; set; } = string.Empty;
+        public decimal? SalesOfferProductPrice { get; set; }
+        public int? SalesOfferProductQuantity { get; set; }
+        public DateTime SalesOfferProductCreatedDate { get; set; } = DateTime.UtcNow;
+        public DateTime? SalesOfferProductUpdateDate { get; set; } = null;
+        public string? SalesOfferProductCreatedBy { get; set; } = string.Empty;
+        public string? SalesOfferProductUpdatedBy { get; set; } = string.Empty;
 
-        public Guid SalesOfferId { get; private set; }
-        public SalesOffer SalesOffer { get; private set; } = new SalesOffer();
+        public Guid SalesOfferId { get; set; }
+        public SalesOffer SalesOffer { get; set; } = new SalesOffer();
         public ICollection<SalesOfferProductDocument> SalesOfferProductDocuments { get; set; } = new List<SalesOfferProductDocument>();
 
     }

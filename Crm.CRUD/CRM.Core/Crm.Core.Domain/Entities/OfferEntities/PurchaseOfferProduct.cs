@@ -12,17 +12,18 @@ namespace Crm.Core.Domain.Entities.OfferEntities
     {
         [Key]
         public Guid PurchaseOfferProductId { get; set; }
-        public string? ProductName { get; set; } = string.Empty;
-        public string? ProductDescription { get; set; } = string.Empty;
-        public decimal? ProductPrice { get; set; }
-        public int? ProductQuantity { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdateDate { get; set; } = null;
-        public string? CreatedBy { get; set; } = string.Empty;
-        public string? UpdatedBy { get; set; } = string.Empty;
+        public string? PurchaseOfferProductName { get; set; } = string.Empty;
+        public string? PurchaseOfferProductDescription { get; set; } = string.Empty;
+        public decimal? PurchaseOfferProductPrice { get; set; }
+        public string? PurchaseOfferProductCurrency { get; set; } = string.Empty;
+        public int? PurchaseOfferProductQuantity { get; set; }
+        public DateTime PurchaseOfferProductCreatedDate { get; set; } = DateTime.UtcNow;
+        public DateTime? PurchaseOfferProductUpdateDate { get; set; } = null;
+        public string? PurchaseOfferProductCreatedBy { get; set; } = string.Empty;
+        public string? PurchaseOfferProductUpdatedBy { get; set; } = string.Empty;
 
-        public Guid PurchaseOfferId { get; private set; }
-        public PurchaseOffer PurchaseOffer { get; private set; } = new PurchaseOffer();
-        public ICollection<PurchaseOfferProductDocument> SalesOfferProductDocuments { get; set; } = new List<PurchaseOfferProductDocument>();
+        public Guid PurchaseOfferId { get; set; }
+        public PurchaseOffer PurchaseOffer { get; set; } = new PurchaseOffer();
+        public ICollection<PurchaseOfferProductDocument> PurchaseOfferProductDocuments { get; set; } = new List<PurchaseOfferProductDocument>();
     }
 }

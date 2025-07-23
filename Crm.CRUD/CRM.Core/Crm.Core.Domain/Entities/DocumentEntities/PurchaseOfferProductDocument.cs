@@ -12,14 +12,14 @@ namespace Crm.Core.Domain.Entities.DocumentEntities
     {
         [Key]
         public Guid PurchaseOfferProductDocumentId { get; set; }
-        public string FileName { get; set; } = string.Empty;
-        public string FileType { get; set; } = string.Empty;
-        public string FilePath { get; set; } = string.Empty;
-        public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
-        public string? UploadedBy { get; set; } = string.Empty;
-        public string? Description { get; set; } = string.Empty;
+        public string PurchaseOfferProductName { get; set; } = string.Empty;
+        public string PurchaseOfferProductType { get; set; } = string.Empty;
+        public string PurchaseOfferProductPath { get; set; } = string.Empty;
+        public DateTime PurchaseOfferProductUploadedAt { get; set; } = DateTime.UtcNow;
+        public string? PurchaseOfferProductUploadedBy { get; set; } = string.Empty;
+        public string? PurchaseOfferProductDescription { get; set; } = string.Empty;
 
-        public Guid PurchaseOfferItemId { get; set; }
-        public PurchaseOfferProduct PurchaseOfferProduct { get; set; }
+        public Guid PurchaseOfferId { get; set; }
+        public PurchaseOffer PurchaseOffer { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace Crm.Core.Domain.Entities.MainEntities
         public string? CreatedBy { get; set; } = string.Empty;
         public string? UpdatedBy { get; set; } = string.Empty;
 
-        public Guid CompanyId { get; private set; }
-        public Company Company { get; private set; } = new Company();
+        public Guid CompanyId { get; set; }
+        public Company Company { get; set; }
     }
 }

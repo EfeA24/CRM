@@ -21,14 +21,14 @@ namespace Crm.Core.Domain.Entities.OfferEntities
         public string? SalesOfferPriority { get; set; } = string.Empty;
         public DateOnly? SalesOfferDate { get; set; } = null;
         public DateOnly? SalesOfferDueDate { get; set; } = null;
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdateDate { get; set; } = null;
-        public string? CreatedBy { get; set; } = string.Empty;
-        public string? UpdatedBy { get; set; } = string.Empty;
+        public DateTime SalesOfferCreatedDate { get; set; } = DateTime.UtcNow;
+        public DateTime? SalesOfferUpdateDate { get; set; } = null;
+        public string? SalesOfferCreatedBy { get; set; } = string.Empty;
+        public string? SalesOfferUpdatedBy { get; set; } = string.Empty;
 
 
-        public Guid CompanyId { get; private set; }
-        public Company Company { get; private set; } = new Company();
+        public Guid CompanyId { get; set; }
+        public Company Company { get; set; } = new Company();
         public ICollection<Contact> Contacts { get; set; } = new List<Contact>();
 
         public ICollection<SalesOfferProduct> SalesOfferProducts { get; set; } = new List<SalesOfferProduct>();

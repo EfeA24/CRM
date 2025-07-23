@@ -11,10 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\" />
+    <Folder Include="Features\CQRS\Commands\FormCommands\" />
     <Folder Include="Features\CQRS\Handlers\" />
-    <Folder Include="Features\CQRS\Results\" />
-    <Folder Include="Features\CQRS\Queries\" />
+    <Folder Include="Features\CQRS\Queries\FormQueries\" />
+    <Folder Include="Features\CQRS\Queries\SaleQueries\" />
+    <Folder Include="Interfaces\FormInterfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
   </ItemGroup>
 
 </Project>

@@ -23,8 +23,6 @@ namespace Crm.Core.Domain.Entities.MainEntities
         public Company? Company { get; set; }
         public Guid? ContactId { get; set; }
         public Contact? Contact { get; set; }
-        public Guid? SalesOfferId { get; set; }
-        public SalesOffer? SalesOffer { get; set; }
     }
 
 }

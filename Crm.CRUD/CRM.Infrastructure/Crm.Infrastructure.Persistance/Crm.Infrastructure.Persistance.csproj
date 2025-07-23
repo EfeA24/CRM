@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\CRM.Core\Crm.Core.Domain\Crm.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\FormRepositories\" />
+  </ItemGroup>
+
 </Project>
