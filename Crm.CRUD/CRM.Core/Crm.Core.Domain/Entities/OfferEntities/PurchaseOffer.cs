@@ -1,5 +1,4 @@
-﻿using Crm.Core.Domain.Entities.DocumentEntities;
-using Crm.Core.Domain.Entities.MainEntities;
+﻿using Crm.Core.Domain.Entities.MainEntities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -34,6 +33,5 @@ namespace Crm.Core.Domain.Entities.OfferEntities
         public ICollection<Contact> Contacts { get; set; } = new List<Contact>();
 
         public ICollection<PurchaseOfferProduct> PurchaseOfferProducts { get; set; } = new List<PurchaseOfferProduct>();
-        public ICollection<PurchaseOfferDocument> PurchaseOfferDocument { get; set; } = new List<PurchaseOfferDocument>();
     }
 }

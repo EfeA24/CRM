@@ -1,5 +1,4 @@
-﻿using Crm.Core.Domain.Entities.DocumentEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,6 +23,5 @@ namespace Crm.Core.Domain.Entities.OfferEntities
 
         public Guid PurchaseOfferId { get; set; }
         public PurchaseOffer PurchaseOffer { get; set; } = new PurchaseOffer();
-        public ICollection<PurchaseOfferProductDocument> PurchaseOfferProductDocuments { get; set; } = new List<PurchaseOfferProductDocument>();
     }
 }

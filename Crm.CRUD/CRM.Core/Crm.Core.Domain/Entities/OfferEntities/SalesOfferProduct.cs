@@ -1,5 +1,4 @@
-﻿using Crm.Core.Domain.Entities.DocumentEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,7 +23,6 @@ namespace Crm.Core.Domain.Entities.OfferEntities
 
         public Guid SalesOfferId { get; set; }
         public SalesOffer SalesOffer { get; set; } = new SalesOffer();
-        public ICollection<SalesOfferProductDocument> SalesOfferProductDocuments { get; set; } = new List<SalesOfferProductDocument>();
 
     }
 }

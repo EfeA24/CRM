@@ -1,5 +1,4 @@
-﻿using Crm.Core.Application.Interfaces.DocumentInterfaces;
-using Crm.Core.Application.Interfaces.Generic;
+﻿using Crm.Core.Application.Interfaces.Generic;
 using Crm.Core.Application.Interfaces.MainEntityInterfaces;
 using Crm.Core.Application.Interfaces.OfferInterfaces;
 using Crm.Infrastructure.Persistance.DataContexts;
@@ -13,10 +12,7 @@ namespace Crm.Infrastructure.Persistance.Repositories.GenericRepositories
         private readonly AppDbContext _context;
 
         public UnitOfWork(AppDbContext context,
-                          IPurchaseOfferDocumentRepository purchaseOfferDocument,
-                          IPurchaseOfferProductDocumentRepository purchaseOfferProductDocument,
-                          ISalesOfferDocumentRepository salesOfferDocument,
-                          ISalesOfferProductDocumentRepository salesOfferProductDocument,
+
                           ICompanyRepository company,
                           IContactRepository contact,
                           IMeetingRepository meeting,
@@ -26,10 +22,7 @@ namespace Crm.Infrastructure.Persistance.Repositories.GenericRepositories
                           ISalesOfferProductRepository salesOfferProduct)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
-            PurchaseOfferDocument = purchaseOfferDocument;
-            PurchaseOfferProductDocument = purchaseOfferProductDocument;
-            SalesOfferDocument = salesOfferDocument;
-            SalesOfferProductDocument = salesOfferProductDocument;
+
             Company = company;
             Contact = contact;
             Meeting = meeting;
@@ -39,10 +32,7 @@ namespace Crm.Infrastructure.Persistance.Repositories.GenericRepositories
             SalesOfferProduct = salesOfferProduct;
         }
 
-        public IPurchaseOfferDocumentRepository PurchaseOfferDocument { get; }
-        public IPurchaseOfferProductDocumentRepository PurchaseOfferProductDocument { get; }
-        public ISalesOfferDocumentRepository SalesOfferDocument { get; }
-        public ISalesOfferProductDocumentRepository SalesOfferProductDocument { get; }
+
         public ICompanyRepository Company { get; }
         public IContactRepository Contact { get; }
         public IMeetingRepository Meeting { get; }

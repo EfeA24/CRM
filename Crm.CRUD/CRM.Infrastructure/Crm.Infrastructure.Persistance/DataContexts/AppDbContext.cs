@@ -1,5 +1,4 @@
-﻿using Crm.Core.Domain.Entities.DocumentEntities;
-using Crm.Core.Domain.Entities.MainEntities;
+﻿using Crm.Core.Domain.Entities.MainEntities;
 using Crm.Core.Domain.Entities.OfferEntities;
 using Crm.Core.Domain.Entities.SystemEntities;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +19,6 @@ namespace Crm.Infrastructure.Persistance.DataContexts
         {
             base.OnModelCreating(modelBuilder);
         }
-
-        public DbSet<PurchaseOfferDocument> PurchaseOfferDocuments { get; set; }
-        public DbSet<PurchaseOfferProductDocument> PurchaseOfferProductDocuments { get; set; }
-        public DbSet<SalesOfferDocument> SalesOfferDocuments { get; set; }
-        public DbSet<SalesOfferProductDocument> SalesOfferProductDocuments { get; set; }
 
         public DbSet<Company> Companies { get; set; }
         public DbSet<Contact> Contacts { get; set; }

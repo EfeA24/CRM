@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Crm.Core.Application.Features.CQRS.Results.OfferResults.PurchaseOffer;
+using Crm.Core.Application.Features.CQRS.Results.OfferResults.SaleOffer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,8 @@ namespace Crm.Core.Application.Features.CQRS.Results.MainEntityResults
         public string? UpdatedBy { get; set; }
 
         public List<ContactListResult> ContactLists { get; set; } = new();
+        public List<PurchaseOfferListResult> PurchaseOffers { get; set; } = new();
+        public List<SalesOfferListResult> SalesOffers { get; set; } = new();
     }
 
 }

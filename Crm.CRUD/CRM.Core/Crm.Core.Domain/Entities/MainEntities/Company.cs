@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crm.Core.Domain.Entities.OfferEntities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace Crm.Core.Domain.Entities.MainEntities
         public string? UpdatedBy { get; set; } = string.Empty;
 
 
-        public ICollection<Contact> Contacts { get; set; } = new List<Contact>();
+        public virtual ICollection<Contact> Contacts { get; set; } = new HashSet<Contact>();
+        public virtual ICollection<PurchaseOffer> PurchaseOffers { get; set; } = new HashSet<PurchaseOffer>();
+        public virtual ICollection<SalesOffer> SalesOffers { get; set; } = new HashSet<SalesOffer>();
     }
 }
