@@ -14,8 +14,6 @@
     <Folder Include="Features\CQRS\Commands\FormCommands\" />
     <Folder Include="Features\CQRS\Handlers\" />
     <Folder Include="Features\CQRS\Queries\FormQueries\" />
-    <Folder Include="Features\CQRS\Queries\PurchaseQueries\" />
-    <Folder Include="Features\CQRS\Queries\SaleQueries\" />
     <Folder Include="Interfaces\FormInterfaces\" />
   </ItemGroup>
 
