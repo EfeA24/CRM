@@ -10,5 +10,11 @@ namespace Crm.Core.Application.Features.CQRS.Queries.PurchaseQueries
 {
     public class GetPurchaseOfferDetailQuery : IRequest<PurchaseOfferDetailResult>
     {
+        public Guid PurchaseOfferId { get; set; }
+
+        public GetPurchaseOfferDetailQuery(Guid purchaseOfferId)
+        {
+            PurchaseOfferId = purchaseOfferId;
+        }
     }
 }

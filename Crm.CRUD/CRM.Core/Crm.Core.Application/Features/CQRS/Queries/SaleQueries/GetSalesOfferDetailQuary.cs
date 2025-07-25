@@ -10,5 +10,11 @@ namespace Crm.Core.Application.Features.CQRS.Queries.SaleQueries
 {
     public class GetSalesOfferDetailQuary : IRequest<SalesOfferDetailResult>
     {
+        public Guid SalesOfferId { get; set; }
+
+        public GetSalesOfferDetailQuary(Guid salesOfferId)
+        {
+            SalesOfferId = salesOfferId;
+        }
     }
 }

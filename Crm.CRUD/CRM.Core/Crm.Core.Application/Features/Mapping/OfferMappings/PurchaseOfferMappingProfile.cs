@@ -42,3 +42,4 @@ namespace Crm.Core.Application.Features.Mapping.OfferMappings
                 .ForMember(dest => dest.CompanyType, opt => opt.MapFrom(src => src.PurchaseOffer.Company.CompanyType));
         }
     }
+}
