@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Crm.Core.Application.Features.CQRS.Commands.OfferCommands.Sales
 {
-    internal class UpdateSalesOfferProductCommand : IRequest<Unit>
+    public class UpdateSalesOfferProductCommand : IRequest<Unit>
     {
         public Guid SalesOfferProductDocumentId { get; set; }
         public string SalesOfferProductDocumentFileName { get; set; }

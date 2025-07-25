@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Crm.Core.Application.Features.CQRS.Handlers.MainEntityHandlers.MeetingHandlers
 {
-    public class UpdateMeetigCommandHandler : IRequestHandler<UpdateMeetigCommand, Unit>
+    public class UpdateMeetigCommandHandler : IRequestHandler<UpdateMeetingCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,7 +18,7 @@ namespace Crm.Core.Application.Features.CQRS.Handlers.MainEntityHandlers.Meeting
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Unit> Handle(UpdateMeetigCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateMeetingCommand request, CancellationToken cancellationToken)
         {
             var entity = await _unitOfWork.Meeting.GetByIdAsync(request.MeetingId);
             if (entity != null)

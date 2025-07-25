@@ -9,8 +9,8 @@ namespace Crm.Core.Application.Features.CQRS.Commands.MainEntityCommands.Contact
 {
     public class DeleteContactCommand : IRequest<Unit>
     {
-        public int Id { get; set; }
-        public DeleteContactCommand(int id)
+        public Guid Id { get; set; }
+        public DeleteContactCommand(Guid id)
         {
             Id = id;
         }

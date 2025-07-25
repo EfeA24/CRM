@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crm.Core.Application.Features.CQRS.Commands.MainEntityCommands.Meeting
 {
-    public class UpdateMeetigCommand : IRequest<Unit>
+    public class UpdateMeetingCommand : IRequest<Unit>
     {
         public Guid MeetingId { get; set; }
         public string Subject { get; set; }
