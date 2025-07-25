@@ -9,10 +9,11 @@ namespace Crm.Core.Application.Features.CQRS.Commands.MainEntityCommands.Company
 {
     public class DeleteCompanyCommand : IRequest<Unit>
     {
-        public int Id { get; set; }
-        public DeleteCompanyCommand(int id)
+        public Guid CompanyId { get; set; }
+
+        public DeleteCompanyCommand(Guid companyId)
         {
-            Id = id;
+            CompanyId = companyId;
         }
     }
 }

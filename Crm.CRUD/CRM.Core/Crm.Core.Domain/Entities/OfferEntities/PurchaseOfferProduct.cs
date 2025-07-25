@@ -23,5 +23,6 @@ namespace Crm.Core.Domain.Entities.OfferEntities
 
         public Guid PurchaseOfferId { get; set; }
         public PurchaseOffer PurchaseOffer { get; set; } = new PurchaseOffer();
+        public bool IsDeleted { get; set; }
     }
 }

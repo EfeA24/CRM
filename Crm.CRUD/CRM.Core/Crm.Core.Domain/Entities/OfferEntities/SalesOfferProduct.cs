@@ -23,6 +23,6 @@ namespace Crm.Core.Domain.Entities.OfferEntities
 
         public Guid SalesOfferId { get; set; }
         public SalesOffer SalesOffer { get; set; } = new SalesOffer();
-
+        public bool IsDeleted { get; set; }
     }
 }

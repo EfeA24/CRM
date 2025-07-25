@@ -23,6 +23,7 @@ namespace Crm.Core.Domain.Entities.MainEntities
         public Company? Company { get; set; }
         public Guid? ContactId { get; set; }
         public Contact? Contact { get; set; }
+        public bool IsDeleted { get; set; }
     }
 
 }

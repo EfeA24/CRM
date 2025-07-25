@@ -27,16 +27,26 @@ namespace Crm.Infrastructure.Persistance.Repositories.GenericRepositories
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _context.Set<T>()
-                .Where(x => !(x as BaseEntity).IsDeleted)
-                .ToListAsync();
+            if (typeof(BaseEntity).IsAssignableFrom(typeof(T)))
+            {
+                return await _context.Set<T>()
+                    .Where(x => !(EF.Property<bool>(x, "IsDeleted")))
+                    .ToListAsync();
+            }
+            else
+            {
+                return await _context.Set<T>().ToListAsync();
+            }
         }
-
 
         public virtual async Task<T?> GetByIdAsync(Guid id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            var entity = await _context.Set<T>().FindAsync(id);
+            if (entity is BaseEntity baseEntity && baseEntity.IsDeleted)
+                return null;
+            return entity;
         }
+
 
         public virtual void Remove(T entity)
         {

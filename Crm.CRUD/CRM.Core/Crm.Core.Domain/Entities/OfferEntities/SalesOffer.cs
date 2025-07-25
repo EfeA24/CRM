@@ -31,6 +31,6 @@ namespace Crm.Core.Domain.Entities.OfferEntities
         public ICollection<Contact> Contacts { get; set; } = new List<Contact>();
 
         public ICollection<SalesOfferProduct> SalesOfferProducts { get; set; } = new List<SalesOfferProduct>();
-
+        public bool IsDeleted { get; set; }
     }
 }

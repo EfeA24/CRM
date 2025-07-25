@@ -33,5 +33,6 @@ namespace Crm.Core.Domain.Entities.OfferEntities
         public ICollection<Contact> Contacts { get; set; } = new List<Contact>();
 
         public ICollection<PurchaseOfferProduct> PurchaseOfferProducts { get; set; } = new List<PurchaseOfferProduct>();
+        public bool IsDeleted { get; set; }
     }
 }

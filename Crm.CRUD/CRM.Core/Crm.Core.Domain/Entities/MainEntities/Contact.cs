@@ -24,5 +24,6 @@ namespace Crm.Core.Domain.Entities.MainEntities
 
         public Guid CompanyId { get; set; }
         public Company Company { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

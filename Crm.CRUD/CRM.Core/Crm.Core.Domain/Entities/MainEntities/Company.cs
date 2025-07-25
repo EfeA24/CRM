@@ -30,5 +30,6 @@ namespace Crm.Core.Domain.Entities.MainEntities
         public virtual ICollection<Contact> Contacts { get; set; } = new HashSet<Contact>();
         public virtual ICollection<PurchaseOffer> PurchaseOffers { get; set; } = new HashSet<PurchaseOffer>();
         public virtual ICollection<SalesOffer> SalesOffers { get; set; } = new HashSet<SalesOffer>();
+        public bool IsDeleted { get; set; }
     }
 }
