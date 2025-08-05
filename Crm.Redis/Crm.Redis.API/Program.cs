@@ -1,4 +1,5 @@
 using Crm.Redis.Application.Interfaces;
+using Crm.Redis.Application.Options;
 using Crm.Redis.Application.Services;
 using Crm.Redis.Application.Validators;
 using StackExchange.Redis;
