@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Crm.Redis.Application.Interfaces
 {
-    internal class IWebhookClient
+    public interface IWebhookClient
     {
+        Task TriggerWebhookAsync(string url, object payload);
     }
 }

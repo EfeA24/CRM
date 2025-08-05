@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Crm.Redis.Domain.Utilities
 {
-    internal class StringHelper
+    public static class StringHelper
     {
+        public static string SanitizeFileName(string fileName)
+        {
+            return Path.GetFileNameWithoutExtension(fileName)
+                       .Replace(" ", "_")
+                       .Replace("ç", "c")
+                       .Replace("ğ", "g")
+                       .Replace("ş", "s")
+                       .Replace("ü", "u")
+                       .Replace("ö", "o")
+                       .Replace("ı", "i");
+        }
     }
 }

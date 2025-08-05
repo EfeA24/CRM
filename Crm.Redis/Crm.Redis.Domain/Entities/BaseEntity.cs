@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Crm.Redis.Domain.Entities
 {
-    internal class BaseEntity
+    public abstract class BaseEntity
     {
+        public Guid Id { get; set; } = Guid.NewGuid();
     }
 }

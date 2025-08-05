@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Crm.Redis.Infrastructure.Redis
+namespace Crm.Redis.Domain.Entities
 {
-    internal class RedisStorageService
+    public class FolderImportRequest
     {
+        public string FolderPath { get; set; } = string.Empty;
     }
 }
