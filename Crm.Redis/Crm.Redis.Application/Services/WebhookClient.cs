@@ -19,7 +19,12 @@ namespace Crm.Redis.Application.Services
 
         public async Task TriggerWebhookAsync(string url, object payload)
         {
-            await _httpClient.PostAsJsonAsync(url, payload);
+            var response = await _httpClient.PostAsJsonAsync(url, payload);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Webhook call to {url} failed with status code {response.StatusCode}");
+            }
         }
     }
 }

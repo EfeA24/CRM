@@ -22,8 +22,22 @@ namespace Crm.Redis.Application.Services
 
         public async Task ProcessFolderAsync(string folderPath)
         {
-            var files = Directory.GetFiles(folderPath, "*.xlsx");
+            if (!Directory.Exists(folderPath))
+            {
+                Console.WriteLine($"Folder not found: {folderPath}");
+                return;
+            }
 
+            string[] files;
+            try
+            {
+                files = Directory.GetFiles(folderPath, "*.xlsx");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error accessing folder {folderPath}: {ex.Message}");
+                return;
+            }
             foreach (var file in files)
             {
                 var fileName = Path.GetFileName(file);

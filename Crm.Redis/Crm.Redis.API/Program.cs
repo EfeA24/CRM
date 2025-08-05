@@ -13,8 +13,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ExcelFolderProcessingService>();
-builder.Services.AddScoped<IWebhookClient, WebhookClient>();
-
 
 builder.Services.AddScoped<IRedisStorageService, RedisStorageService>();
 builder.Services.AddHttpClient<IWebhookClient, WebhookClient>();
