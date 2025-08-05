@@ -18,7 +18,10 @@ namespace Crm.Infrastructure.Persistance.DataContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<BaseEntity>().HasNoKey();
         }
+
 
         public DbSet<Company> Companies { get; set; }
         public DbSet<Contact> Contacts { get; set; }
