@@ -1,11 +1,14 @@
 ﻿using Crm.Redis.Application.Interfaces;
 using Crm.Redis.Domain.Entities;
 using Crm.Redis.Domain.Utilities;
+using ExcelDataReader;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Crm.Redis.Application.Services
 {
@@ -48,18 +51,45 @@ namespace Crm.Redis.Application.Services
 
                 var sanitized = StringHelper.SanitizeFileName(fileName);
 
+                var data = ReadExcel(file);
+
                 var excelPath = new ExcelPath
                 {
                     FileName = sanitized,
                     FilePath = file,
-                    UploadedAt = DateTime.UtcNow
+                    UploadedAt = DateTime.UtcNow,
+                    Data = data
                 };
 
                 var redisKey = KeyGenerator.GenerateExcelKey(excelPath.Id);
 
                 await _redis.StoreAsync(redisKey, excelPath);
-                await _webhook.TriggerWebhookAsync("https://n8n.yourserver.com/webhook/excel", new { key = redisKey });
+                await _webhook.TriggerWebhookAsync("https://n8n.yourserver.com/webhook/excel", new { key = redisKey, data });
             }
+        }
+
+        private static List<Dictionary<string, object?>> ReadExcel(string path)
+        {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            using var stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using var reader = ExcelReaderFactory.CreateReader(stream);
+            var config = new ExcelDataSetConfiguration
+            {
+                ConfigureDataTable = _ => new ExcelDataTableConfiguration { UseHeaderRow = true }
+            };
+            var dataSet = reader.AsDataSet(config);
+            var table = dataSet.Tables[0];
+            var rows = new List<Dictionary<string, object?>>();
+            foreach (DataRow row in table.Rows)
+            {
+                var dict = new Dictionary<string, object?>();
+                foreach (DataColumn col in table.Columns)
+                {
+                    dict[col.ColumnName] = row[col];
+                }
+                rows.Add(dict);
+            }
+            return rows;
         }
     }
 }
