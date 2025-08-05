@@ -2,6 +2,7 @@
 using Crm.Redis.Domain.Entities;
 using Crm.Redis.Domain.Utilities;
 using ExcelDataReader;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,11 +17,13 @@ namespace Crm.Redis.Application.Services
     {
         private readonly IRedisStorageService _redis;
         private readonly IWebhookClient _webhook;
+        private readonly IConfiguration _configuration;
 
-        public ExcelFolderProcessingService(IRedisStorageService redis, IWebhookClient webhook)
+        public ExcelFolderProcessingService(IRedisStorageService redis, IWebhookClient webhook, IConfiguration configuration)
         {
             _redis = redis;
             _webhook = webhook;
+            _configuration = configuration;
         }
 
         public async Task ProcessFolderAsync(string folderPath)
@@ -64,7 +67,8 @@ namespace Crm.Redis.Application.Services
                 var redisKey = KeyGenerator.GenerateExcelKey(excelPath.Id);
 
                 await _redis.StoreAsync(redisKey, excelPath);
-                await _webhook.TriggerWebhookAsync("https://n8n.yourserver.com/webhook/excel", new { key = redisKey, data });
+                var webhookUrl = _configuration["N8N:WebhookUrl"] ?? "http://localhost:5678/webhook/excel";
+                await _webhook.TriggerWebhookAsync(webhookUrl, new { key = redisKey, data });
             }
         }
 

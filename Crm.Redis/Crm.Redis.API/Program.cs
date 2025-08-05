@@ -17,6 +17,8 @@ builder.Services.AddScoped<ExcelFolderProcessingService>();
 builder.Services.AddScoped<IRedisStorageService, RedisStorageService>();
 builder.Services.AddHttpClient<IWebhookClient, WebhookClient>();
 
+builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
+
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis"))
 );
